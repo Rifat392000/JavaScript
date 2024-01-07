@@ -26,6 +26,7 @@ console.log(a3, arr2)
 
 
 // Array reduce method
+//return sum of array
 let arr3 = [1, 2, 3, 5, 2, 1]
 const reduce_func1 = arr3.reduce((h1, h2) => h1 + h2)
 console.log(reduce_func1);
