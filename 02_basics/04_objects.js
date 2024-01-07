@@ -1,88 +1,35 @@
-// singleton
-// Object.create
-const TeslaUser = new Object()
 
-// const TeslaUser = {}
+// object literals
+const mySym = Symbol("key1")
 
-TeslaUser.id = "123abc"
-TeslaUser.name = "Rifat"
-TeslaUser.isLoggedIn = false
 
-console.log(TeslaUser);
-
-const regularUser = {
-    email: "rifat@gmail.com",
-    fullname: {
-        userfullname: {
-            firstname: "Max",
-            lastname: "Rifat"
-        }
-    }
+const JsUser = {
+    name: "Rifat",
+    "full name": "Max Rifat ",
+    [mySym]: "mykey1",
+    age: 18,
+    location: "Dhaka",
+    email: "Rifat@google.com",
+    isLoggedIn: false,
+    lastLoginDays: ["Sunday", "Saturday"]
 }
 
-console.log(regularUser.fullname.userfullname.firstname);
+console.log(JsUser.email)
+console.log(JsUser["email"])
+console.log(JsUser["full name"])
+console.log(JsUser[mySym])
 
-const obj1 = {1: "a", 2: "b"}
-const obj2 = {3: "c", 4: "d"}
-const obj3 = {5: "e", 6: "f"}
+JsUser.email = "Rifat@chatgpt.com"
+ //Object.freeze(JsUser)
+JsUser.email = "Rifat@microsoft.com"
+ //console.log(JsUser);
 
-const obj4 = { obj1, obj2 }
-console.log(obj4);
-const obj5 = Object.assign({}, obj1, obj2, obj3)
-console.log(obj5);
-const obj6 = {...obj1, ...obj2,...obj3} //best approach
- console.log(obj6);
- 
-
-
-const users = [
-    {
-        id: 1,
-        email: "bob@gmail.com"
-    },
-    {
-        id: 2,
-        email: "alex@gmail.com"
-    },
-    {
-        id: 3,
-        email: "newton@gmail.com"
-    },
-]
-
-users[1].email
-console.log(users[1].email);
-
-console.log(TeslaUser);
-
-console.log(Object.keys(TeslaUser));
-console.log(Object.values(TeslaUser));
-console.log(Object.entries(TeslaUser));
-
-console.log(TeslaUser.hasOwnProperty('isLoggedIn'));
-
-
-const course = {
-    coursename: "Javascript",
-    price: "333",
-    courseInstructor: "Rifat"
+JsUser.greeting = function(){
+    console.log("Hello JS user");
+}
+JsUser.greetingTwo = function(){
+    console.log(`Hello JS user, ${this.name} ${this.email}`);
 }
 
-const {courseInstructor} = course
-console.log(courseInstructor);
-
-const {courseInstructor: instructor} = course
-console.log(instructor);
-
-// {
-//     "name": "hitesh",
-//     "coursename": "js in hindi",
-//     "price": "free"
-// }
-
-// [
-//     {},
-//     {},
-//     {}
-// ]
-
+JsUser.greeting();
+JsUser.greetingTwo();
