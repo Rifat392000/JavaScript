@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Learn Javascript</h1>
+    <p>Learn Javascript text will change within 5 seconds but if press button context will not change</p>
+    <button id="stop">Stop</button>
+
+    <script>
+        const sayHello = function(){
+            console.log("Hello World");
+        }
+    
+    
+    //The setTimeout() method is used to call a function after a certain period of time. 
+    //The setInterval() Javascript method is used to call a function repeatedly at a specified interval of time.
+    
+        
+        // 1 second to 1000 millisecond
+        setTimeout(sayHello,2000);
+    
+        const changeText = function(){
+            document.querySelector('h1').innerHTML = "Welcome Everyone"
+        }
+    
+        const changeMe = setTimeout(changeText, 5000)
+        //clearTimeout(changeMe)
+    
+        document.querySelector('#stop').addEventListener('click',() => 
+        clearTimeout(changeMe),console.log("Stopped"));
+    </script>
+    
+</body>
+
+</html>

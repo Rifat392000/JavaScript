@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Learn Javascript</h1>
+    <script>
+
+        setInterval(function(){
+                console.log("Hello World");
+            }, 1000)
+        
+            const sayDate = function(){
+                console.log("Welcome everyone", Date.now());
+            }
+            setInterval(sayDate, 3000)
+           
+        
+            const  printString = function(str){
+                console.log(str);
+            }
+            setInterval(printString, 3000, "Ola")
+        
+        
+            const sayCheese = () => console.log("I Love Cheese")
+            setInterval(sayCheese, 5000)  
+           
+            const sayGreen = str => console.log(str)
+            const intervalId=setInterval(sayGreen, 5000,"Green");
+        
+        clearInterval(intervalId);
+        
+        </script>
+</body>
+</html>
