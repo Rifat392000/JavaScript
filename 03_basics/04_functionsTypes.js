@@ -16,9 +16,6 @@ console.log(sayHello1());
 
 /* Callback Functions
 /which pass into other functions as a parameter, which is actually a Anonymous Function expression too */
-setTimeout(function(){
-    return 'Hello'
-})
 
 setTimeout(function(){
     console.log('Timeout');
