@@ -1,0 +1,66 @@
+
+<!-- XMLHttpRequest, an API meant to overcome this limitation. 
+Initially, XMLHttpRequest was designed to fetch XML data via HTTP, hence the name. 
+Sometime after it was released, however, support for other data formats 
+— primarily JSON, HTML, and plaintext — was added -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        img {
+  border-radius: 50%;
+  object-fit: contain; /* This will ensure the image fits entirely within the circular border, even if it's not a perfect square. */
+            }
+    </style>
+</head>
+<body style="background-color: #212121;">
+
+    <script>
+
+        const requestUrl = 'https://api.github.com/users/rifat392000';
+      
+      // xhr xml http request
+      const xhr = new XMLHttpRequest();
+      
+      // Log the initial state (state 0)
+      console.log('Initial State (UNSENT):', xhr.readyState);
+      
+      // onreadystatechange continuously monitors the state
+      xhr.onreadystatechange = function () {
+          console.log('State Changed:', xhr.readyState);
+      
+          // State 4 means the operation is complete (DONE)
+          if (xhr.readyState === 4) {
+              console.log('Response Text:', this.responseText);
+              console.log('Type of Response Text:', typeof this.responseText);
+      
+              const data = JSON.parse(this.responseText);
+              console.log('Type of Parsed Data:', typeof data);
+      
+              console.log('Following:', data.following);
+              document.body.innerHTML=`<div> 
+                  <img src="${data.avatar_url}" alt="Boy in a tshirt" width="200px"> 
+                  </div>`
+          }
+      }
+      
+      // State 1: OPENED - open() has been called
+      // State 2: HEADERS_RECEIVED - send() has been called, and headers and status are available
+      // State 3: LOADING - Downloading; responseText holds partial data
+      // State 4: DONE - The operation is complete
+      xhr.open('GET', requestUrl);
+      
+      // Initiates the request
+      xhr.send();
+
+      </script>
+
+</body>
+</html>
