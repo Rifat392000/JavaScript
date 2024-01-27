@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange" class="colorBtn">Orange</button>
+    <button id="green" class="colorBtn">Green</button>
+
+    <script>
+        function clickHandler(color) {
+            return function() {
+                document.body.style.backgroundColor = color; // Use the color directly
+            };
+        }
+
+        document.querySelectorAll('.colorBtn').forEach(button => {
+            button.addEventListener('click', clickHandler(button.id)); // Pass button.id directly
+        });
+    </script>
+</body>
+</html>
