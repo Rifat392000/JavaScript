@@ -1,0 +1,75 @@
+<!-- 9 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubble</title>
+    <style>
+      body {
+        border: 5px solid green;
+        padding: 20px;
+      }
+      #uls {
+        border: 5px solid tomato;
+        padding: 20px;
+      }
+      #header{
+        border: 5px solid violet;
+        padding: 20px;
+      }
+      #ulItem {
+        border: 5px solid red;
+        padding: 20px;
+      }
+      #item-3 {
+        border: 5px solid blue;
+        margin: 2px;
+        padding: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- section>ul>li#item-$*6>lorem3 -->
+    <section id="uls">
+      <h1 id="header">Exploring Event Bubble</h1>
+      <ul id="ulItem">
+        <li id="item-1">Lorem, ipsum dolor.</li>
+        <li id="item-2">Minima, quis accusantium?</li>
+        <li id="item-3">Sit, ipsam eius!</li>
+        <li id="item-4">Recusandae, illo facere?</li>
+        <li id="item-5">Aliquam, deleniti sint!</li>
+        <li id="item-6">Odio, veniam illo.</li>
+      </ul>
+    </section>
+    <script>
+        document.getElementById('item-3').addEventListener('click',(event)=>{
+            console.log("Item 3  selected");
+            event.stopImmediatePropagation();
+        })
+        document.getElementById('item-3').addEventListener('click',(event)=>{
+            console.log("Item 3 duplicate 1 selected");
+            event.stopPropagation();
+        })
+        document.getElementById('item-3').addEventListener('click',(event)=>{
+            console.log("Item 3 duplicate 2 selected");
+            event.stopPropagation();
+        })
+        document.getElementById('ulItem').addEventListener('click',()=>{
+            console.log("Ul selected");
+        })
+        document.getElementById('header').addEventListener('click',()=>{
+            console.log("Header selected");
+            event.stopPropagation();
+        })
+        document.getElementById('uls').addEventListener('click',()=>{
+            console.log("Section selected");
+        })
+        document.getElementById('uls').parentNode.addEventListener('click',()=>{
+            console.log("Body selected");
+        })
+        
+        
+    </script>
+  </body>
+</html>

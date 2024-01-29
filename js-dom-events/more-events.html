@@ -1,0 +1,51 @@
+<!-- 4 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More Events</title>
+  </head>
+  <body>
+    <button id="move">Mouse Move</button> <br />
+    <br />
+    <button id="enter">Mouse enter</button> <br /><br />
+    <input type="text" id="focus" /> <br /><br />
+    <label for="keyPressUp" style="margin-right: 40px">KeyUp</label
+    ><input type="text" id="keyPressUp" /> <br /><br />
+    <label for="keyPressDown" style="margin-right: 40px">KeyDown</label
+    ><input type="text" id="keyPressDown" /> <br /><br />
+    <label for="keyPress" style="margin-right: 40px">KeyPress</label
+    ><input type="text" id="keyPress" /> <br /><br />
+    <script>
+      document
+        .getElementById("move")
+        .addEventListener("mousemove", () => console.log("Moving"));
+      document
+        .getElementById("enter")
+        .addEventListener("mouseenter", () => console.log("Enter"));
+      document
+        .getElementById("focus")
+        .addEventListener("focus", () => console.log("I am focus on js"));
+      document
+        .getElementById("focus")
+        .addEventListener("blur", () => console.log("You are blur now"));
+
+      document
+        .getElementById("keyPressUp")
+        .addEventListener("keyup", (event) => console.log(event.target.value));
+
+      document
+        .getElementById("keyPressDown")
+        .addEventListener("keydown", (event) =>
+          console.log(event.target.value)
+        );
+
+      document
+        .getElementById("keyPress")
+        .addEventListener("keypress", (event) =>
+          console.log(event.target.value)
+        );
+    </script>
+  </body>
+</html>

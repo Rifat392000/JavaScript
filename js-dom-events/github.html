@@ -1,0 +1,27 @@
+<!-- 5 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github</title>
+  </head>
+  <body>
+    <p id="hide">Email is rifat@mail.com</p>
+    <input type="text" id="uinput" placeholder="please type Delete" />
+    <button id="Delete" disabled>Delete</button>
+    <script>
+      document.getElementById("uinput").addEventListener("keyup", (e) => {
+        if (e.target.value == "Delete") {
+          document.getElementById("Delete").removeAttribute("disabled");
+        } else {
+          document.getElementById("Delete").setAttribute("disabled", true);
+        }
+      });
+      document.getElementById("Delete").addEventListener("click", () => {
+        document.getElementById("hide").style.display = "none";
+        document.getElementById("uinput").value = "";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!-- 2 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Summary</title>
+  </head>
+  <body>
+    <h1>Welcome to <span>Javascript</span></h1>
+    <button onclick="makepython()">Python</button>
+    <button id="java">Java</button>
+    <input type="text" name="" id="text-input" />
+    <button id="customize">
+      Customize your favourite programming language
+    </button>
+    <script>
+      function makepython() {
+        document.querySelector("h1 span").innerText = `Python`;
+      }
+
+      document
+        .getElementById("java")
+        .addEventListener(
+          "click",
+          () => (document.querySelector("h1 span").innerText = `Java`)
+        );
+
+      document.getElementById("customize").addEventListener("click", () => {
+        const text = document.getElementById("text-input").value;
+        if (text.trim() !== "") {
+          console.log(document.querySelector("h1 span").innerText);
+          document.querySelector("h1 span").innerText = text;
+          document.getElementById("text-input").value = ""; // Clear the input field
+        } else {
+          alert("Input invalid");
+        }
+      });
+    </script>
+  </body>
+</html>

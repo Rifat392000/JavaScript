@@ -1,0 +1,35 @@
+<!-- 10 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <h1>Exploring Event</h1>
+      <ul id="ulItem">
+        <li>Lorem, ipsum dolor.</li>
+        <li>Minima, quis accusantium?</li>
+        <li>Sit, ipsam eius!</li>
+        <li>Recusandae, illo facere?</li>
+        <li>Aliquam, deleniti sint!</li>
+        <li>Odio, veniam illo.</li>
+      </ul>
+      <button id="btn">Add</button>
+    </section>
+    <script>
+      document.getElementById("ulItem").addEventListener("click", (e) => {
+        //bubble up
+        console.log(e.target);
+        e.target.parentNode.removeChild(e.target);
+      });
+      document.getElementById("btn").addEventListener("click", () => {
+        const li = document.createElement("li");
+        li.innerText = "hello dear how are you";
+        document.getElementById("ulItem").appendChild(li);
+      });
+    </script>
+  </body>
+</html>

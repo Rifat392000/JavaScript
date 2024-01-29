@@ -1,0 +1,51 @@
+<!-- 1 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <style>
+      h1,
+      button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 onclick="console.log('already clicked');">Javascript Events</h1>
+    <button onclick="console.log(7)">click me</button>
+    <button onclick="console.log(1001);">save</button>
+    <button onclick="makeYellow()">Yellow</button>
+    <button id="red">Red</button>
+    <button id="orange">Orange</button>
+    <button id="purple">Purple</button>
+    <button id="green">Green</button>
+    <button id="pink">Pink</button>
+    <button id="blue">Blue</button>
+    <button id="grey">Grey</button>
+    <script>
+      function makeYellow() {
+        document.body.style.backgroundColor = "yellow";
+      }
+
+      document.getElementById("green").addEventListener("click", makeGreen);
+      function makeGreen() {
+        document.body.style.backgroundColor = "green";
+      }
+      document
+        .getElementById("pink")
+        .addEventListener("click", function makePink() {
+          document.body.style.backgroundColor = "pink";
+        });
+
+      document.getElementById("blue").addEventListener("click", function () {
+        document.body.style.backgroundColor = "lightblue";
+      });
+      document.getElementById("grey").addEventListener("click", () => {
+        document.body.style.backgroundColor = "lightgrey";
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
