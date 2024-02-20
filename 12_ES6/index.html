@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why JS</title>
+  </head>
+  <body>
+    <section>
+      <!-- .parent>.friend*5>h3.friend-name{Friend-$}+p>lorem7 -->
+      <div id="parent">
+        <div class="friend">
+          <h3 class="friend-name">Friend-1</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+        </div>
+        <div class="friend">
+          <h3 class="friend-name">Friend-2</h3>
+          <p>Totam sapiente, minus laboriosam ullam tempore aperiam!</p>
+        </div>
+        <div class="friend">
+          <h3 class="friend-name">Friend-3</h3>
+          <p>Odio consequuntur reprehenderit placeat commodi ratione. Amet!</p>
+        </div>
+        <div class="friend">
+          <h3 class="friend-name">Friend-4</h3>
+          <p>Iste quas vero cumque placeat numquam alias.</p>
+        </div>
+        <div class="friend">
+          <h3 class="friend-name">Friend-5</h3>
+          <p>Eveniet illum quo fuga vel, sint aperiam.</p>
+        </div>
+      </div>
+      <button id="apply-bg">Color Background Change</button>
+      <button id="center">Heading Center</button>
+      <button id="child">New Friend Add</button>
+    </section>
+    <script>
+      document
+        .getElementById("apply-bg")
+        .addEventListener("click", function () {
+          const friends = document.getElementsByClassName("friend");
+          for (const friend of friends) {
+            friend.style.backgroundColor =
+              Math.random() > 0.5 ? "lightblue" : "lightgreen";
+          }
+        });
+
+      document.getElementById("center").addEventListener("click", () => {
+        const heading = document.getElementsByClassName("friend-name");
+        for (let i = 0; i < heading.length; i++) {
+          heading[i].style.textAlign = "center";
+        }
+      });
+
+      document.getElementById("child").addEventListener("click", () => {
+        const heading = document.getElementsByClassName("friend-name");
+        const newFriend = document.createElement("div");
+        newFriend.classList.add("friend");
+        newFriend.innerHTML = `<h3 class="friend-name">Friend-${
+          heading.length + 1
+        }</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>`;
+        document.getElementById("parent").appendChild(newFriend);
+      });
+    </script>
+  </body>
+</html>
